@@ -89,3 +89,25 @@ server.port=8080
 ```
 
 Never commit a real production database password to source control.
+
+## Live Cloud Deployment
+
+### Option 1: Render (Free & Fast)
+1. Push this repository to GitHub.
+2. Sign in to [Render](https://render.com).
+3. Click **New +** → **Web Service** → Connect your GitHub repository `jagadeeshwaran2006/springboot-web-application`.
+4. Choose **Docker** runtime.
+5. In **Environment Variables**:
+   - Set `PORT` = `8080`
+   - Set `SPRING_PROFILES_ACTIVE` = `h2` (for zero-setup instant demo) OR provide your MySQL credentials:
+     - `SPRING_DATASOURCE_URL` = `jdbc:mysql://<your-db-host>:3306/<database>?useSSL=true`
+     - `SPRING_DATASOURCE_USERNAME` = `<username>`
+     - `SPRING_DATASOURCE_PASSWORD` = `<password>`
+6. Click **Deploy Web Service**. Your live URL will be `https://<service-name>.onrender.com`.
+
+### Option 2: Railway
+1. Sign in to [Railway](https://railway.app).
+2. Click **New Project** → **Deploy from GitHub repo**.
+3. (Optional) Click **New** → **Database** → **Add MySQL**, then link `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, and `SPRING_DATASOURCE_PASSWORD`.
+4. Railway will build using the `Dockerfile` and provide a public HTTPS domain.
+
