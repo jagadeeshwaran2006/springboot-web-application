@@ -1,0 +1,1 @@
+package com.example.bikerental; import org.springframework.data.jpa.repository.JpaRepository; import java.util.List; import java.util.Optional; public interface VerificationRequestRepository extends JpaRepository<VerificationRequest,Long>{ Optional<VerificationRequest> findByUsername(String username); List<VerificationRequest> findAllByOrderBySubmittedAtDesc(); }
